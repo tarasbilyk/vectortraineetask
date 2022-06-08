@@ -7,6 +7,8 @@ SELECT * FROM Products
 WHERE Price = (SELECT MIN(Price) FROM Products)  
 
 SELECT SUM(Price) FROM Products
+JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
+WHERE Suppliers.Country = 'USA'
 
 SELECT * FROM Suppliers
 WHERE SupplierID IN (SELECT DISTINCT SupplierID FROM Products
